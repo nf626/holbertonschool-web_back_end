@@ -9,13 +9,13 @@ class Building {
 
   set sqft(newSqft) {
     if (typeof newSqft !== 'number') {
-      throw new Error('newSqft is not number');
+      throw new Error('Class extending Building must override evacuationWarningMessage');
     }
     this._sqft = newSqft;
   }
 
   evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+    return this._sql;
   }
 }
 
