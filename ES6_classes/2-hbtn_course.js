@@ -6,10 +6,12 @@ class HolbertonCourse {
   }
 
   set name(newName) {
-    if (typeof newName === 'string') {
-      this._name = newName;
-    } else {
-      console.error('TypeError: Name must be a string');
+    try {
+      if (typeof newName === 'string') {
+        this._name = newName;
+      }
+    } catch (error) {
+      console.log(error instanceof TypeError);
     }
   }
 
@@ -18,10 +20,12 @@ class HolbertonCourse {
   }
 
   set length(newLength) {
-    if (typeof newLength === 'number') {
-      this._length = newLength;
-    } else {
-      console.error('Not number');
+    try {
+      if (typeof newLength === 'number') {
+        this._length = newLength;
+      }
+    } catch (error) {
+      console.log(error instanceof TypeError);
     }
   }
 
@@ -30,10 +34,12 @@ class HolbertonCourse {
   }
 
   set students(newStudents) {
-    if (Array.isArray(newStudents)) {
-      this._students = newStudents;
-    } else {
-      console.error('Not array');
+    try {
+      if (Array.isArray(newStudents)) {
+        this._students = newStudents;
+      }
+    } catch (error) {
+      console.log(error instanceof TypeError);
     }
   }
 
