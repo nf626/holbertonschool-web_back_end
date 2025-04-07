@@ -1,6 +1,5 @@
 class Building {
   constructor(sqft) {
-    super(sqft);
     this._sqft = sqft;
   }
 
@@ -16,7 +15,9 @@ class Building {
   }
 
   evacuationWarningMessage() {
-    return `Error: Class extending Building must override evacuationWarningMessage`;
+    if (!this._sqft) {
+      Error('Class extending Building must override evacuationWarningMessage');
+    }
   }
 }
 
