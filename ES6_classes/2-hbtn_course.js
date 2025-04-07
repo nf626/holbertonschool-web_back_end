@@ -29,7 +29,7 @@ class HolbertonCourse {
   }
 
   get length() {
-    return this._length
+    return this._length;
   }
 
   set length(newLength) {
