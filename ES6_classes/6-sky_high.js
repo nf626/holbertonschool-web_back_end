@@ -28,9 +28,8 @@ class SkyHighBuilding extends Building {
     this._floors = newFloors;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   evacuationWarningMessage() {
-    throw new Error('Evacuate slowly the NUMBER_OF_FLOORS floors');
+    return `Evacuate slowly the ${this._floors} floors`;
   }
 }
 
