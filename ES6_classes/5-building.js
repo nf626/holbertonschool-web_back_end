@@ -1,7 +1,7 @@
 class Building {
   constructor(sqft) {
-    if (new.target === Building) {
-      throw new Error("Cannot instantiate an abstract class");
+    if (new.target !== Building) {
+      this.evacuationWarningMessage();
     }
     this._sqft = sqft; // underscore-prefixed variable
   }
