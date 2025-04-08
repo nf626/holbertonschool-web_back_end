@@ -1,7 +1,7 @@
 class Building {
   constructor(sqft) {
-    if (sqft instanceof Building) {
-      throw new Error('Class extending Building must override evacuationWarningMessage');
+    if (this.constructor === Building) {
+      throw new Error('Cannot instantiate an abstract class');
     }
     this._sqft = sqft;
   }
@@ -18,10 +18,7 @@ class Building {
   }
 
   evacuationWarningMessage() {
-    if (this._sqft === Building) {
-      throw new Error('Class extending Building must override evacuationWarningMessage');
-    }
-    return this._sqft;
+    throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
 
