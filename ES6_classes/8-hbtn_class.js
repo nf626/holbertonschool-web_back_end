@@ -26,11 +26,11 @@ class HolbertonClass {
     this._location = newLocation;
   }
 
-  Number() {
+  valueOf() {
     return `${this._size}`;
   }
 
-  String() {
+  toString() {
     return `${this._location}`;
   }
 }
