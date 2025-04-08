@@ -33,3 +33,5 @@ class SkyHighBuilding extends Building {
     throw new Error('Evacuate slowly the NUMBER_OF_FLOORS floors');
   }
 }
+
+export default SkyHighBuilding;
