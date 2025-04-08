@@ -1,7 +1,4 @@
-/* eslint-disable max-classes-per-file */
-const class2019 = new HolbertonClass(2019, 'San Francisco');
-const class2020 = new HolbertonClass(2020, 'San Francisco');
-
+// eslint-disable-next-line max-classes-per-file
 export class HolbertonClass {
   constructor(year, location) {
     this._year = year;
@@ -12,16 +9,27 @@ export class HolbertonClass {
     return this._year;
   }
 
+  set year(newYear) {
+    if (typeof newYear !== 'number') {
+      throw new Error('newYear not number');
+    }
+    this._year = newYear;
+  }
+
   get location() {
     return this._location;
   }
+
+  set location(newLocation) {
+    if (typeof newLocation !== 'string') {
+      throw new Error('newLocation not string');
+    }
+    this._location = newLocationL;
+  }
 }
 
-const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
-const student2 = new StudentHolberton('John', 'Doe', class2020);
-const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
-const student4 = new StudentHolberton('Donald', 'Bush', class2019);
-const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
+const class2019 = new HolbertonClass(2019, 'San Francisco');
+const class2020 = new HolbertonClass(2020, 'San Francisco');
 
 export class StudentHolberton {
   constructor(firstName, lastName) {
@@ -30,17 +38,45 @@ export class StudentHolberton {
     this._holbertonClass = holbertonClass;
   }
 
-  get fullName() {
+  get firstName() {
+    return this._firstName;
+  }
+
+  set firstName(newFirstName) {
+    if (typeof newFirstName !== 'string') {
+      throw new Error('FirstName not string');
+    }
+    this._firstName = newFirstName;
+  }
+
+  get lastName() {
+    return this._lastName;
+  }
+
+  set lastName(newLastName) {
+    if (typeof newLastName !== 'string') {
+      throw new Error('LastName not string');
+    }
+    this._lastName = newLastName;
+  }
+
+  fullName() {
     return `${this._firstName} ${this._lastName}`;
   }
 
   get holbertonClass() {
-    return this.holbertonClass;
+    return this._holbertonClass;
   }
 
   get fullStudentDescription() {
-    return `${self._firstName} ${self._lastName} - ${self._holbertonClass.year} - ${self._holbertonClass.location}`;
+    return `${this._firstName} ${this._lastName} - ${this._holbertonClass.year} - ${this._holbertonClass.location}`;
   }
 }
+
+const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
+const student2 = new StudentHolberton('John', 'Doe', class2020);
+const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
+const student4 = new StudentHolberton('Donald', 'Bush', class2019);
+const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
 
 export const listOfStudents = [student1, student2, student3, student4, student5];
