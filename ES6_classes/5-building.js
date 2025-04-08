@@ -1,10 +1,9 @@
 class Building {
   constructor(sqft) {
-    this._sqft = sqft;
-
-    if (sqft === Building) {
+    if (sqft instanceof Building) {
       throw new Error('Class extending Building must override evacuationWarningMessage');
     }
+    this._sqft = sqft;
   }
 
   get sqft() {
@@ -19,7 +18,10 @@ class Building {
   }
 
   evacuationWarningMessage() {
-    throw new Error('override evacuationWarningMessage');
+    if (this._sqft === Building) {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
+    }
+    return this._sqft;
   }
 }
 
