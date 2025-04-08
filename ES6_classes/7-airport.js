@@ -26,8 +26,8 @@ class Airport {
     this._code = newCode;
   }
 
-  airportDescription() {
-    return `${this._code}`;
+  toString() {
+    return `[object ${this._code}]`;
   }
 }
 
