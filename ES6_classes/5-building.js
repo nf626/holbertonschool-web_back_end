@@ -1,7 +1,7 @@
 class Building {
   constructor(sqft) {
-    if (sqft instanceof Building) {
-      this.evacuationWarningMessage();
+    if (new.target === Building) {
+      throw new Error('Building cannot be instantiated directly');
     }
     this._sqft = sqft;
   }
