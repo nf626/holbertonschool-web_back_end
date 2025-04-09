@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
 function updateStudentGradeByCity(getListStudents, city, newGrades) {
   const filterStudent = getListStudents.filter((student) => student.location === city);
