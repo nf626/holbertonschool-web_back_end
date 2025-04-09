@@ -1,15 +1,20 @@
+/* eslint-disable max-len */
 function updateStudentGradeByCity(getListStudents, city, newGrades) {
-  if (!newGrades.grade) {
-    newGrades.grade = 'N/A';
-    console.log(newGrades);
-  }
-  const studentGrade = getListStudents.map((item) => {
-    const grad = item;
-    return grad;
+  const filterStudent = getListStudents.filter((student) => student.location === city);
+
+  const studentGrade = filterStudent.map((student) => {
+    const grad = newGrades.find((grade) => grade.id === student.id);
+
+    if (grad) {
+      student.grade = grad.grade;
+    } else {
+      student.grade = 'N/A';
+    }
+
+    return student;
   });
 
-  const newStudent = studentGrade.filter((studentGrade) => studentGrade.location === city);
-  return newStudent;
+  return studentGrade;
 }
 
 export default updateStudentGradeByCity;
