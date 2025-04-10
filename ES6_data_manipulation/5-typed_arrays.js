@@ -10,7 +10,7 @@ function createInt8TypedArray(length, position, value) {
   console.log(buffer);
   console.log(view);
 
-  if (byteOffset + length > buffer.byteLength) {
+  if (position > buffer.byteLength) {
     throw new Error('Position outside range');
   }
   return view;
