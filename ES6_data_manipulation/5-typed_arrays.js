@@ -1,18 +1,16 @@
 function createInt8TypedArray(length, position, value) {
   // Create an ArrayBuffer with a size in bytes
   const buffer = new ArrayBuffer(length);
-  const byteOffset = 0;
 
   // Create view to access array buffer
   const view = new DataView(buffer);
 
-  view.setInt8(position, value); // Put value in position
-  console.log(buffer);
-  console.log(view);
-
-  if (position > buffer.byteLength) {
+  if (position < 0 || position >= length) {
     throw new Error('Position outside range');
   }
+
+  view.setInt8(position, value); // Put value in position
+
   return view;
 }
 
