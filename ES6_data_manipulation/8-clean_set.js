@@ -1,4 +1,4 @@
-function cleanSet(set, startString) {
+function cleanSet(set, startString = '') {
   const filterSet = [...set].filter((value) => value.startsWith(startString));
 
   const mapSet = filterSet.map((value) => value.slice(startString.length));
