@@ -1,5 +1,5 @@
-function setFromArray(...array) {
-  const newSet = new Set(...array);
+function setFromArray(array) {
+  const newSet = new Set(array);
   return newSet;
 }
 

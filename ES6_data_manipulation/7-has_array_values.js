@@ -1,5 +1,8 @@
-function hasValuesFromArray(...set, ...array) {
-    console.log(...set);
+function hasValuesFromArray(set, array) {
+  
+    for (const item of array) {
+    console.log(item);
+  }
 }
 
 export default hasValuesFromArray;
