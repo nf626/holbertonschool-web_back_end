@@ -1,9 +1,9 @@
 function cleanSet(set, startString) {
-  if (!startString) {
+  if (typeof startString !== 'string') {
     return '';
   }
 
-  const filterSet = [...set].filter((value) => value.startsWith(startString));
+  const filterSet = [...set].filter((value) => (typeof value === 'string') && value.startsWith(startString));
 
   const mapSet = filterSet.map((value) => value.slice(startString.length));
 
