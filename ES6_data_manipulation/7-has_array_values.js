@@ -1,6 +1,6 @@
 function hasValuesFromArray(set, array) {
   const arraySet = new Set(array);
-  return arraySet.isSubsetOf(set);
+  return set.isSupersetOf(arraySet);
 }
 
 export default hasValuesFromArray;
