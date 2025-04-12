@@ -1,4 +1,4 @@
-import { uploadPhoto, createUser } from '/home/holbertonschool-web_back_end/utils';
+import { uploadPhoto, createUser } from 'utils';
 
 function handleProfileSignup() {
   const myPromise = Promise.all([uploadPhoto(), createUser()])
