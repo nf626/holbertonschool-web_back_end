@@ -15,7 +15,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
   } catch (error) {
     return [{
       status: 'rejected',
-      value: error,
+      value: [error],
     }];
   }
 }
