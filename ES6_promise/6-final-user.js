@@ -14,7 +14,7 @@ async function handleProfileSignup(firstName, lastName, fileName) {
     }));
   } catch (error) {
     return [{
-      status: 'reject',
+      status: 'rejected',
       value: 'error',
     }];
   }
