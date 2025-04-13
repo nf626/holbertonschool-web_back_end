@@ -8,11 +8,9 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
   const uploadPhotoPromise = uploadPhoto(fileName);
 
   const myPromise = Promise.allSettled([signUpPromise, uploadPhotoPromise])
-    .then((results) => (
-      results.map((arr) => ({
-        status: arr.status,
-        value: arr.status === 'fulfilled' ? arr.value : String(arr.reason),
-      }))
-    ));
+    .then((results) => results.map((arr) => ({
+      status: arr.status,
+      value: arr.status === 'fulfilled' ? arr.value : String(arr.reason),
+    })));
   return myPromise;
 }
