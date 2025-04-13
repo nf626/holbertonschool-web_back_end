@@ -1,7 +1,7 @@
 // 6-final-user.js
 
-import { signUpUser } from './4-user-promise.js'; // Import signUpUser
-import { uploadPhoto } from './5-photo-reject.js'; // Import uploadPhoto
+import signUpUser from './4-user-promise'; // Import signUpUser
+import uploadPhoto from './5-photo-reject'; // Import uploadPhoto
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
   try {
@@ -12,7 +12,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
 
     return results.map((result) => ({
       status: result.status,
-      value: result.status === 'fulfilled' ? result.value : result.reason
+      value: result.status === 'fulfilled' ? result.value : String(result.reason),
     }));
   } catch (error) {
     return [{
