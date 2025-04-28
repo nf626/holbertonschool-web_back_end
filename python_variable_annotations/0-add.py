@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-''' Write a type-annotated function add that takes a float a and a float b as arguments
-    and returns their sum as a float. '''
+''' type-annotated function add that takes float arguments
+    and returns float. '''
 
 
 def add(a: float, b: float) -> float:
-    ''' add float arguments and returns float '''
+    ''' add a + b '''
     return a + b
