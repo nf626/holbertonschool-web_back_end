@@ -8,6 +8,6 @@ the int/float v and should be annotated as a float.
 '''
 from typing import Tuple, Union
 
-def to_kv(k: str, v: Union[int, float]) -> Tuple[Union[str, float]]:
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     ''' return tuple '''
     return (k, v)
