@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-''' print(__import__("0-add").my_function.__doc__)
-'''
+''' Write a type-annotated function add that takes a float a and a float b as arguments
+    and returns their sum as a float. '''
 
 
 def add(a: float, b: float) -> float:
+    ''' add float arguments and returns float '''
     return a + b
