@@ -7,10 +7,13 @@ random delay between 0 and max_delay (included and
 float value) seconds and eventually returns it.
 Use the random module.
 '''
-import asyncio, random
+import asyncio
+import random
 
 
 async def wait_random(max_delay: int = 10) -> float:
+    ''' random delay between 0 and max_delay (included and float value)
+    seconds and eventually returns it. '''
     new_delay = random.uniform(0, max_delay)
     await asyncio.sleep(1)
     return new_delay
