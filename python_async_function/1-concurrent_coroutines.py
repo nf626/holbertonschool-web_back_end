@@ -22,13 +22,6 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     The list of the delays should be in ascending
     order without using sort() because of concurrency. '''
     
-    # schedule task
-    task = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
-    
-    # get task as completed
-    result_list = []
-    for task_result in asyncio.as_completed(task):
-        result = await task_result
-        result_list.append(result)
-    
-    return result_list
+    tasks = await asyncio.gather(*[wait_random(max_delay) for _ in range(n)])
+
+    return sorted(tasks)
