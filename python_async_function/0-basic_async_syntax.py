@@ -10,7 +10,7 @@ Use the random module.
 import asyncio, random
 
 
-async def wait_random(max_delay = 10):
+async def wait_random(max_delay = 10) -> float:
     max_delay = random.random()
     await asyncio.sleep(1)
     return max_delay
