@@ -17,7 +17,5 @@ async def async_comprehension() -> Generator[float, None, None]:
     ''' collect 10 random numbers using an async
     comprehensing over async_generator, then return
     the 10 random numbers. '''
-    for i in range(0, 10):
-        i = async_generator()
-        await asyncio.sleep(1)
-        yield i
+    result = [i async for i in async_generator()]
+    return result
