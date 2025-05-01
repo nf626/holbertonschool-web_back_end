@@ -47,3 +47,4 @@ class Server:
             return data[page_start:page_end]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[]:
+        pass
