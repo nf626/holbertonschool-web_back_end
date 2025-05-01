@@ -44,5 +44,5 @@ class Server:
             if page_start >= len(data):
                 return []
             else:
-                 data[page_start:page_end]
-                 return data
+                return data[page_start:page_end]
+                 
