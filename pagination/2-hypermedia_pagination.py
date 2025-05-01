@@ -49,12 +49,26 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> None:
         ''' returns a dictionary containing the
         following key-value pairs '''
+        last_page = math.ceil(((page - 1) * page_size) / page_size)
+
+        next_page = page + 1
+        if page < last_page:
+            next_page
+        else:
+            next_page = None
+
+        prev_page = page - 1
+        if page > 1:
+            prev_page
+        else:
+            prev_page = None
+
         hyper_media = {
             'page_size': page_size,
             'page': page,
             'data': self.get_page(page, page_size),
-            'next_page': page + 1,
-            'prev_page': page - 1,
+            'next_page': next_page,
+            'prev_page': prev_page,
             'total_pages': (page - 1) * page_size
         }
 
