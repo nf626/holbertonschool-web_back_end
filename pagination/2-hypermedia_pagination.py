@@ -46,5 +46,17 @@ class Server:
         else:
             return data[page_start:page_end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[]:
-        pass
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> None:
+        ''' returns a dictionary containing the
+        following key-value pairs '''
+        data = self.dataset()
+        hyper_media = {
+            'page_size': page_size,
+            'page': page,
+            'data': self.get_page(page, page_size),
+            'next_page': page + 1,
+            'prev_page': page - 1,
+            'total_pages': len(data)
+        }
+
+        return hyper_media
