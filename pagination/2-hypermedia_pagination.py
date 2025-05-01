@@ -63,7 +63,7 @@ class Server:
         if page > 1:
             prev_page
         else:
-            prev_page = None            
+            prev_page = None
 
         hyper_media = {
             'page_size': len(data),
