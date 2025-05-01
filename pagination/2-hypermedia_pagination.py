@@ -49,11 +49,10 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> None:
         ''' returns a dictionary containing the
         following key-value pairs '''
-        total_page = math.ceil(((page - 1) * page_size) / page_size)
-        total = math.ceil(total_page / page_size)
+        total_page = math.ceil((page * page_size) / page_size)
 
         next_page = page + 1
-        if page < total:
+        if page < total_page:
             next_page
         else:
             next_page = None
