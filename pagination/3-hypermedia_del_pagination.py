@@ -41,24 +41,23 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            ''' Deletion-Resilient Approach '''
-            assert index >= 0
+        ''' Deletion-Resilient Approach '''
+        assert index >= 0
 
-            csv = self.indexed_dataset()
-            data = []
+        csv = self.indexed_dataset()
+        data = []
 
-            next_index = index
+        next_index = index
 
-            for value in range(page_size):
-                while not csv.get(next_index):
-                      next_index = next_index + 1
-                data.append(csv.get(next_index))
+        for _ in range(page_size):
+            while not csv.get(next_index):
                 next_index = next_index + 1
-            
+            data.append(csv.get(next_index))
+            next_index = next_index + 1
 
-            return {
-                'index': index,
-                'next_index': next_index,
-                'page_size': page_size,
-                'data': data
-            }
+        return {
+            'index': index,
+            'next_index': next_index,
+            'page_size': page_size,
+            'data': data
+        }
