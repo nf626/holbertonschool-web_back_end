@@ -46,10 +46,12 @@ class Server:
         else:
             return data[page_start:page_end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> None:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         ''' returns a dictionary containing the
         following key-value pairs '''
-        total_page = math.ceil((page * page_size) / page_size)
+        data = self.get_page(page, page_size)
+        total = len(self.dataset())
+        total_page = math.ceil(total / page_size)
 
         next_page = page + 1
         if page < total_page:
@@ -64,12 +66,12 @@ class Server:
             prev_page = None            
 
         hyper_media = {
-            'page_size': page_size,
+            'page_size': len(data),
             'page': page,
-            'data': self.get_page(page, page_size),
+            'data': data,
             'next_page': next_page,
             'prev_page': prev_page,
-            'total_pages': (page - 1) * page_size
+            'total_pages': total_page
         }
 
         return hyper_media
