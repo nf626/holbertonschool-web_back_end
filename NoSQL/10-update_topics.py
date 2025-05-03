@@ -12,5 +12,5 @@ topics (list of strings) will be the list of topics approached in the school
 def update_topics(mongo_collection, name, topics):
     ''' return changed topics (list of strings) '''
     if mongo_collection is not None:
-        change_topic = mongo_collection.update_one(name, topics)
+        change_topic = mongo_collection.update_one(topics, name)
         return change_topic
