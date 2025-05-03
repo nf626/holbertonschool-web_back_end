@@ -12,4 +12,4 @@ def list_all(mongo_collection):
     if not mongo_collection:
         return []
     else:
-        my_db.mongo_collection.find()
+        mongo_collection.find()
