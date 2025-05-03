@@ -17,6 +17,6 @@ def update_topics(mongo_collection, name, topics):
         change_topic = mongo_collection.update_one(query, new_Values)
 
         if change_topic.modified_count > 0:
-            return topics
+            return change_topic
         else:
             return None
