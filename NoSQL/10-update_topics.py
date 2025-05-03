@@ -14,12 +14,6 @@ def update_topics(mongo_collection, name, topics):
     if mongo_collection is not None:
         query = { "name": name }
         new_Values = { "$set": { "topics": topics } }
-        change_topic = mongo_collection.update_one(query, new_Values)
+        change_topic = mongo_collection.update_one(query, new_Values, multi=True)
 
-        if change_topic.matched_count > 0:
-            if change_topic.modified_count > 0:
-                return topics
-            else:
-                return None
-        else:
-            return None
+        return change_topic
