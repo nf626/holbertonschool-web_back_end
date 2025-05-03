@@ -2,7 +2,7 @@
 // The document must have one attribute name with value 'Holberton school'
 // The database name will be passed as option of mongo command
 
-my_db > db.school.insert(
+db.school.insert(
     {
         "name": "Holberton school"
     }
