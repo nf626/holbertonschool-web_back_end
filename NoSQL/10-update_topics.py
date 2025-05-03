@@ -14,5 +14,5 @@ def update_topics(mongo_collection, name, topics):
     if mongo_collection is not None:
         query = { "name": name }
         new_Values = { "$set": { "topics": topics } }
-        change_topic = mongo_collection.update_one(query, new_Values)
+        change_topic = mongo_collection.update_one(query, new_Values, { "multi": True })
         return change_topic
