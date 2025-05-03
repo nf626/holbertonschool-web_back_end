@@ -9,10 +9,7 @@ import pymongo
 
 def list_all(mongo_collection):
     ''' Return an empty list if no document in the collection '''
-    cursor = mongo_collection
-
     if mongo_collection is not None:
-        for item in cursor.find():
-            return item
+        return list(mongo_collection.find())
     else:
         return []
