@@ -9,5 +9,6 @@ Returns the new _id
 
 def insert_school(mongo_collection, **kwargs):
     ''' Returns the new _id '''
-    id = mongo_collection.insert_many(kwargs)
-    return id.inserted_ids
+    if mongo_collection is not None:
+        id = mongo_collection.insert_many(kwargs)
+        return id.inserted_ids
