@@ -16,7 +16,10 @@ def update_topics(mongo_collection, name, topics):
         new_Values = { "$set": { "topics": topics } }
         change_topic = mongo_collection.update_one(query, new_Values)
 
-        if change_topic.modified_count > 0:
-            return change_topic
+        if change_topic.matched_count > 0:
+            if change_topic.modified_count > 0:
+                return topics
+            else:
+                return None
         else:
             return None
