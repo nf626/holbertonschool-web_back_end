@@ -8,7 +8,5 @@ Return an empty list if no document in the collection
 
 def list_all(mongo_collection):
     ''' Return an empty list if no document in the collection '''
-    if "school" in mongo_collection:
-        return mongo_collection
-    else:
-        return []
+    for x in mongo_collection.find():
+        return x
