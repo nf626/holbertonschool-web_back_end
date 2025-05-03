@@ -13,4 +13,4 @@ def schools_by_topic(mongo_collection, topic):
     if mongo_collection is not None:
         return mongo_collection.find( { "topic": topic } )
     else:
-        return None
+        return []
