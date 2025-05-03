@@ -6,12 +6,13 @@ Return an empty list if no document in the collection
 '''
 import pymongo
 
+
 def list_all(mongo_collection):
     ''' Return an empty list if no document in the collection '''
-    find = mongo_collection.find()
+    cursor = mongo_collection
 
     if mongo_collection is not None:
-        for item in find:
+        for item in cursor.find():
             return item
     else:
         return []
