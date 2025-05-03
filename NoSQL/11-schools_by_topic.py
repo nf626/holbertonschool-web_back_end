@@ -11,6 +11,6 @@ topic (string) will be topic searched
 def schools_by_topic(mongo_collection, topic):
     ''' returns the list of school having a specific topic '''
     if mongo_collection is not None:
-        return mongo_collection.find( { "topic": topic } )
-    else:
-        return []
+        find = mongo_collection.find( { "topic": topic } )
+        for x in find:
+            return x
