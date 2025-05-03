@@ -13,6 +13,6 @@ def update_topics(mongo_collection, name, topics):
     ''' return changed topics (list of strings) '''
     if mongo_collection is not None:
         query = { "name": name }
-        new_Values = { "$set": { "name": topics } }
+        new_Values = { "$set": { "name": [topics] } }
         change_topic = mongo_collection.update_one(query, new_Values)
         return change_topic
