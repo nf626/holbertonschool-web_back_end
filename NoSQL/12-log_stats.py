@@ -28,7 +28,11 @@ if __name__ == "__main__":
     count_method = { method: myCollection.count_documents({ 'method': method }) for method in methods }
 
     # Count GET method and path
-    count_method_path = myCollection.count_documents({ 'method': 'GET'}, { 'path': '/status' })
+    query = {
+        'method': 'GET',
+        'path': '/status'
+    }
+    count_method_path = myCollection.count_documents(query)
 
     if myCollection is not None:
         print(f'{total_collections} logs')
