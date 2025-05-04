@@ -36,9 +36,3 @@ if __name__ == "__main__":
         for method in methods:
             print(f'\tmethod {method}: {count_method[method]}')
         print(f'{count_method_path} status check')
-    else:
-        print(f'{None} logs')
-        print('Methods:')
-        for method in methods:
-            print(f'\tmethod {method}: {None}')
-        print(f'{None} status check')
