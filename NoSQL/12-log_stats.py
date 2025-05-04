@@ -37,8 +37,8 @@ if __name__ == "__main__":
             print(f'\tmethod {method}: {count_method[method]}')
         print(f'{count_method_path} status check')
     else:
-        print(f'{total_collections} logs')
+        print(f'{None} logs')
         print('Methods:')
         for method in methods:
-            print(f'\tmethod {method}: {count_method[method]}')
-        print(f'{count_method_path} status check')
+            print(f'\tmethod {method}: {None}')
+        print(f'{None} status check')
