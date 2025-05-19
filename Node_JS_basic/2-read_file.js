@@ -1,18 +1,17 @@
-// fs module
-const fs = require('node:fs');
+const fs = require('fs');
 
 function countStudents(path) {
-  let data;
+  let content;
 
   try {
-    data = fs.readFileSync(path);
+    content = fs.readFileSync(path);
   } catch (err) {
     throw new Error('Cannot load the database');
   }
 
-  data = data.toString().split('\n');
+  content = content.toString().split('\n');
 
-  let students = data.filter((item) => item);
+  let students = content.filter((item) => item);
 
   students = students.map((item) => item.split(','));
 
@@ -24,15 +23,19 @@ function countStudents(path) {
     if (student !== 0) {
       if (!fields[students[student][3]]) {
         fields[students[student][3]] = [];
-        fields[students[student][3]].push(students[student][0]);
       }
+      fields[students[student][3]].push(students[student][0]);
     }
   }
 
   delete fields.field;
 
   for (const key of Object.keys(fields)) {
-    console.log(`Number of students in ${key}: ${fields[key].length}. List: ${fields[key].join(', ')}`);
+    console.log(
+      `Number of students in ${key}: ${fields[key].length}. List: ${fields[
+        key
+      ].join(', ')}`,
+    );
   }
 }
 
