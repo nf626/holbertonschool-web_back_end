@@ -4,7 +4,7 @@ that prints in STDOUT the string argument.
  */
 
 function displayMessage(string) {
-  process.stdout.write(`${string}\n`);
+  process.stdout.write(string);
 }
 
-module.exports = displayMessage;
+export default displayMessage;
