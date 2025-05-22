@@ -4,9 +4,11 @@ const countStudents = require('./3-read_file_async');
 const Port = 1245;
 
 const consoleArg = process.argv.slice(2);
+// terminal: node 5-http.js argv[0] = database.csv
 const db = consoleArg[0];
 
 const app = http.createServer(async (req, res) => {
+  // destructuring assignment
   const { url } = req;
 
   if (url === '/') {
