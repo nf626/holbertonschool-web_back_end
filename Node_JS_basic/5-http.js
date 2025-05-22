@@ -7,10 +7,12 @@ const consoleArg = process.argv.slice(2);
 const db = consoleArg[0];
 
 const app = http.createServer(async (req, res) => {
-  if (req.url === '/') {
+  const { url } = req;
+
+  if (url === '/') {
     res.writeHead(200, { 'Content-type': 'text/plain' });
     res.end('Hello Holberton School!');
-  } else if (req.url === '/students') {
+  } else if (url === '/students') {
     res.writeHead(200, { 'Content-type': 'text/plain' });
     res.write('This is the list of our students\n');
     try {
@@ -20,8 +22,6 @@ const app = http.createServer(async (req, res) => {
       res.end(err.message);
     }
   }
-  res.statusCode(404);
-  res.end();
 }).listen(Port);
 
 module.exports = app;
