@@ -12,7 +12,7 @@ const app = http.createServer(async (req, res) => {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     res.writeHead(200, { 'Content-type': 'text/plain' });
-    res.write('This is the list of our students');
+    res.write('This is the list of our students\n');
     try {
       const data = await countStudents(db);
       res.end(`${data.join('\n')}`);
@@ -20,6 +20,8 @@ const app = http.createServer(async (req, res) => {
       res.end(err.message);
     }
   }
+  res.statusCode(404);
+  res.end();
 }).listen(Port);
 
 module.exports = app;
