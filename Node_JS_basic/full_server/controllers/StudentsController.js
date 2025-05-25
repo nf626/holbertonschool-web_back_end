@@ -1,6 +1,6 @@
 import readDatabase from '../utils';
 
-export default class StudentsController {
+class StudentsController {
   // get all students
   static getAllStudents(request, response, db) {
     const message1 = 'This is the list of our students';
@@ -25,11 +25,12 @@ export default class StudentsController {
   static getAllStudentsByMajor(request, response, db) {
     const { major } = request.params;
 
+    // get major
     if (major === 'CS' || major === 'SWE') {
       readDatabase(db)
         .then((fields) => {
           const students = fields[major];
-          response.send(200, `List: ${students.join('\n')}`);
+          response.send(200, `List: ${students.join(', ')}`);
         })
         .catch(() => {
           response.send(500, 'Cannot load the database');
@@ -39,3 +40,5 @@ export default class StudentsController {
     }
   }
 }
+
+export default StudentsController;

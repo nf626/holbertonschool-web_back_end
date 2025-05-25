@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-export default function readDatabase(path) {
+function readDatabase(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf-8', (err, data) => {
       if (err) {
-        reject(Error('Cannot load the database'));
+        reject(Error(err));
       }
 
       const content = data.toString().split('\n');
@@ -28,3 +28,5 @@ export default function readDatabase(path) {
     });
   });
 }
+
+export default readDatabase;
