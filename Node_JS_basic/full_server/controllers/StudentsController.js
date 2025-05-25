@@ -1,42 +1,47 @@
 import readDatabase from '../utils';
 
 class StudentsController {
-  // get all students
-  static getAllStudents(request, response, db) {
-    const message1 = 'This is the list of our students';
-    readDatabase(db)
+  static getAllStudents(request, response, DATABASE) {
+    readDatabase(DATABASE)
       .then((fields) => {
         const students = [];
-        let message;
+        // let count = 0;
+        let msg;
 
-        students.push(message1);
+        // for (const key of Object.keys(fields)) {
+        //   count += fields[key].length;
+        // }
+
+        // students.push(`Number of students: ${count}`);
+        students.push('This is the list of our students');
 
         for (const key of Object.keys(fields)) {
-          message = `Number of students in ${key}: ${fields[key].length}. List: ${fields[key].join(',')}`;
+          msg = `Number of students in ${key}: ${
+            fields[key].length
+          }. List: ${fields[key].join(', ')}`;
 
-          students.push(message);
+          students.push(msg);
         }
         response.send(200, `${students.join('\n')}`);
-      }).catch(() => {
+      })
+      .catch(() => {
         response.send(500, 'Cannot load the database');
       });
   }
 
-  static getAllStudentsByMajor(request, response, db) {
+  static getAllStudentsByMajor(request, response, DATABASE) {
     const { major } = request.params;
 
-    // get major
-    if (major === 'CS' || major === 'SWE') {
-      readDatabase(db)
+    if (major !== 'CS' && major !== 'SWE') {
+      response.send(500, 'Major parameter must be CS or SWE');
+    } else {
+      readDatabase(DATABASE)
         .then((fields) => {
           const students = fields[major];
+
           response.send(200, `List: ${students.join(', ')}`);
         })
-        .catch(() => {
-          response.send(500, 'Cannot load the database');
-        });
-    } else {
-      response.send(500, 'Major parameter must be CS or SWE');
+        .catch(() => response.send(500, 'Cannot load the database'));
     }
   }
 }
